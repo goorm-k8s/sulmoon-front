@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Input({ value, onChange }) {
+export default function Input({ value, onChange, onClick }) {
   return (
     <>
     <p>
@@ -25,6 +25,11 @@ export default function Input({ value, onChange }) {
         value={value}
         onChange={onChange}
       />
+      </p>
+      <p>
+        <button type="button" onClick={onClick}>
+          Log In
+        </button>
       </p>
       </>
   );
