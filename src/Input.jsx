@@ -20,7 +20,7 @@ export default function Input({ value, onChange, onClick }) {
     <p>
       <input
         id="input-task-title"
-        type="text"
+        type="password"
         placeholder="password"
         value={value}
         onChange={onChange}
