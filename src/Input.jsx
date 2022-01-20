@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Button from '@material-ui/core/Button';
+
 export default function Input({ value, onChange, onClick }) {
   return (
     <>
@@ -27,10 +29,13 @@ export default function Input({ value, onChange, onClick }) {
       />
       </p>
       <p>
-        <button type="button" onClick={onClick}>
-          Log In
-        </button>
+       <Button variant="contained" color="success" onClick={onClick}>
+         Log In
+       </Button>
       </p>
+      <Button variant="text" size="small" onClick={onClick}>
+        회원가입
+      </Button>
       </>
   );
 }
