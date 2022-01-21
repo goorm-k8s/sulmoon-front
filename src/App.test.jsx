@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
 
 describe('App', () => {
@@ -7,9 +7,8 @@ describe('App', () => {
   );
 
   it('input value', () => {
-    const { getByLabelText } = renderApp();
-
-    const input = getByLabelText('ID');
+    renderApp();
+    const input = screen.getByLabelText('ID');
 
     fireEvent.change(input, {
       target: { value: '1234' },
