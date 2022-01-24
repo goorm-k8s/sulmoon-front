@@ -3,6 +3,7 @@ import {Button} from '@material-ui/core';
 import styled from 'styled-components';
 
 import Sulmoon5 from './images/Sulmoon5.jpg';
+import kakao from './images/kakao.png';
 
 export default function Login() {
   const handleClickKakaoLogin = () => {
@@ -17,12 +18,11 @@ export default function Login() {
         </div>
         <ButtonWrapper>
           <SNSButton
-            buttonColor="#f9e000"
-            buttonText='카카오 계정으로 로그인'
+            imgUrl={kakao}
             onClick={handleClickKakaoLogin}
           />
-          <SNSButton buttonColor="#2DB400" isWhiteColor>
-             네이버로 로그인
+          <SNSButton>
+            네이버로 로그인
           </SNSButton>
           <SNSButton buttonColor="#3B5998" isWhiteColor>
              Facebook으로 로그인
@@ -54,17 +54,10 @@ const ButtonWrapper = styled.div`
 
 const SNSButton = styled(Button)`
   && {
-    height: 30px;
-    width: 200px;
-    margin: 0.5em;
-    justify-content: 'center';
-    background-position: 'center';
-    background-size: 'cover';
-    background-color: ${(props) => props.buttonColor};
-    font-family: 'Cafe24SsurroundAir';
-    font-size: small;
-    color: ${(props) => props.isWhiteColor ? 'white' : 'black'};
-    font-weight: bold;
+    width: 280px;
+    height: 50px;
+    background-size: 'contain';
+    background:url(${(props)=>props.imgUrl}); 
   }
 `;
 
