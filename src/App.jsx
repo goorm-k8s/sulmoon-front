@@ -14,7 +14,7 @@ export default function App() {
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/Login" exact element={<Login />} />
-        <Route path='/oauth/kakao/callback' element={<Auth />} />
+        <Route path="/oauth/kakao/callback" element={<Auth />} />
       </Routes>
     </Router>
   );
