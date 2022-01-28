@@ -5,7 +5,7 @@ import FormField from 'src/components/FormField';
 
 const isEmptyObject = (obj) => Object.keys(obj).length === 0;
 
-export default function CreateSulmoon() {
+export default function CreateSurvey() {
   const [title, setTitle] = useState('');
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState(''); 
@@ -34,7 +34,6 @@ export default function CreateSulmoon() {
 
   const handleSubmit = (event) => {
     console.log('result:', formData);
-    // TODO: 
     event.preventDefault();
   }
 
@@ -72,6 +71,13 @@ export default function CreateSulmoon() {
           placeholder='질문을 입력하세요'
           onChange={handleQuestionChange}
           value={question}
+        />
+        <br />
+        <input
+          type='text'
+          name='answer'
+          onChange={handleAnswerChange}
+          value={answer}
         />
         <br />
         <input

@@ -37,6 +37,13 @@ export default function FormField({ id, onChangeFieldData}) {
           value={fieldData.answer}
         />
         <br />
+        <input
+          type='text'
+          name='answer'
+          onChange={handleAnswerChange}
+          value={fieldData.answer}
+        />
+        <br />
         {/* TODO: answers */}
       </FormFieldContainer>
   )

@@ -4,28 +4,28 @@ import styled from 'styled-components';
 import {Button} from '@material-ui/core';
 
 export default function Home() {
-  const handelClickCreateSulmoon = () => {
-    window.location.href = '/CreateSulmoon';
+  const handelClickCreateSurvey = () => {
+    window.location.href = '/CreateSurvey';
   };
 
   return (
     <div>
       <ButtonWrapper>
-        <SulmoonButton>
+        <SurveyButton>
             내가 생성한 설문 보기
-        </SulmoonButton>
-        <SulmoonButton>
+        </SurveyButton>
+        <SurveyButton>
              내가 참여한 설문 보기
-        </SulmoonButton>
-        <SulmoonButton onClick={handelClickCreateSulmoon}>
+        </SurveyButton>
+        <SurveyButton onClick={handelClickCreateSurvey}>
              새로운 설문 생성
-        </SulmoonButton>
+        </SurveyButton>
       </ButtonWrapper>
     </div>
   );
 }
 
-const SulmoonButton = styled(Button)`
+const SurveyButton = styled(Button)`
   && {
     width: 280px;
     height: 50px;
