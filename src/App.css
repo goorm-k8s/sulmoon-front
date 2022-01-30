@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url("./fonts/Jalnan.ttf") format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KoPubDotumMedium';
+     src: url("./fonts/KoPubWorld Batang Medium.ttf") format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24SsurroundAir';
+    src: url("./fonts/Cafe24SsurroundAir.ttf") format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
