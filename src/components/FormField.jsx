@@ -5,7 +5,10 @@ import styled from 'styled-components';
 export default function FormField({ id, onChangeFieldData}) {
   const [fieldData, setFieldData] = useState({
     question: '',
-    answer: '',
+    firstAnswer: '',
+    secondAnswer: '',
+    thirdAnswer: '',
+    fourthAnswer: '',
   });
 
   const handleQuestionChange = (event) => {
@@ -14,8 +17,26 @@ export default function FormField({ id, onChangeFieldData}) {
     onChangeFieldData({ ...changeValues, id });
   };
   
-  const handleAnswerChange = (event) => {
-    const changeValues = { ...fieldData, answer: event.target.value };
+  const handleAnswerChangeFirst = (event) => {
+    const changeValues = { ...fieldData, firstAnswer: event.target.value };
+    setFieldData(changeValues );
+    onChangeFieldData({ ...changeValues, id });
+  };
+
+  const handleAnswerChangeSecond = (event) => {
+    const changeValues = { ...fieldData, secondAnswer: event.target.value };
+    setFieldData(changeValues );
+    onChangeFieldData({ ...changeValues, id });
+  };
+
+  const handleAnswerChangeThird = (event) => {
+    const changeValues = { ...fieldData, thirdAnswer: event.target.value };
+    setFieldData(changeValues );
+    onChangeFieldData({ ...changeValues, id });
+  };
+
+  const handleAnswerChangeFourth = (event) => {
+    const changeValues = { ...fieldData, fourthAnswer: event.target.value };
     setFieldData(changeValues );
     onChangeFieldData({ ...changeValues, id });
   };
@@ -32,19 +53,31 @@ export default function FormField({ id, onChangeFieldData}) {
         <br />
         <input
           type='text'
-          name='answer'
-          onChange={handleAnswerChange}
-          value={fieldData.answer}
+          name='firstAnswer'
+          onChange={handleAnswerChangeFirst}
+          value={fieldData.firstAnswer}
         />
         <br />
         <input
           type='text'
-          name='answer'
-          onChange={handleAnswerChange}
-          value={fieldData.answer}
+          name='secondAnswer'
+          onChange={handleAnswerChangeSecond}
+          value={fieldData.secondAnswer}
         />
         <br />
-        {/* TODO: answers */}
+        <input
+          type='text'
+          name='thirdAnswer'
+          onChange={handleAnswerChangeThird}
+          value={fieldData.thirdAnswer}
+        />
+        <br />
+        <input
+          type='text'
+          name='fourthAnswer'
+          onChange={handleAnswerChangeFourth}
+          value={fieldData.fourthAnswer}
+        />
       </FormFieldContainer>
   )
 }

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { IconButton } from '@material-ui/core';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import RemoveIcon from '@mui/icons-material/Remove';
 import FormField from 'src/components/FormField';
 
 const isEmptyObject = (obj) => Object.keys(obj).length === 0;
 
 export default function CreateSurvey() {
   const [title, setTitle] = useState('');
-  const [question, setQuestion] = useState('');
-  const [answer, setAnswer] = useState(''); 
+  // const [question, setQuestion] = useState('');
+  // const [answer, setAnswer] = useState(''); 
   const [fields, setFields] = useState([]);
 
   const [formData, setFormData] = useState([]);
@@ -24,25 +25,41 @@ export default function CreateSurvey() {
     setTitle(event.target.value);
   };
 
-  const handleQuestionChange = (event) => {
-    setQuestion(event.target.value);
-  };
+  // const handleQuestionChange = (event) => {
+  //   setQuestion(event.target.value);
+  // };
   
-  const handleAnswerChange = (event) => {
-    setAnswer(event.target.value);
-  }
+  // const handleAnswerChange = (event) => {
+  //   setAnswer(event.target.value);
+  // }
 
   const handleSubmit = (event) => {
     console.log('result:', formData);
     event.preventDefault();
   }
 
-  const handleClickAddField = () => {
-    setFormData([...formData, {
+  const handleReset = () => {
+    setFormData({
       id: formData.length,
       question: '',
-      answer: '',
-    }]);
+      firstAnswer: '',
+      secondAnswer: '',
+      thirdAnswer: '',
+      fourthAnswer: '',
+    });
+
+    setFields([])
+  }
+
+  const handleClickAddField = () => {
+    setFormData({
+      id: formData.length,
+      question: '',
+      firstAnswer: '',
+      secondAnswer: '',
+      thirdAnswer: '',
+      fourthAnswer: '',
+    });
 
     setFields([
       ...fields,
@@ -64,7 +81,8 @@ export default function CreateSurvey() {
           onChange={handleChange}
           value={title}
         />
-        <br/>
+        <br />
+        {/* <br />
         <input
           type='text'
           name='question'
@@ -79,14 +97,7 @@ export default function CreateSurvey() {
           onChange={handleAnswerChange}
           value={answer}
         />
-        <br />
-        <input
-          type='text'
-          name='answer'
-          onChange={handleAnswerChange}
-          value={answer}
-        />
-        <br />
+        <br /> */}
       </div>
 
       {fields.map(field => (
@@ -94,9 +105,11 @@ export default function CreateSurvey() {
       ))}
 
       <input type='submit' value='submit' />
-      <input type='reset' value='reset' />
       <IconButton onClick={handleClickAddField}>
         <AddCircleOutlineIcon />
+      </IconButton>
+      <IconButton onClick={handleReset}>
+        <RemoveIcon />
       </IconButton>
     </form>
   );

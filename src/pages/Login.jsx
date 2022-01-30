@@ -21,7 +21,7 @@ export default function Login() {
             imgUrl={kakao}
             onClick={handleClickKakaoLogin}
           />
-          <SNSButton>
+          {/* <SNSButton>
             네이버로 로그인
           </SNSButton>
           <SNSButton buttonColor="#3B5998" isWhiteColor>
@@ -29,7 +29,7 @@ export default function Login() {
           </SNSButton>
           <SNSButton buttonColor="#EA4335" isWhiteColor>
              Google 계정으로 로그인
-          </SNSButton>
+          </SNSButton> */}
         </ButtonWrapper>
       </ButtonContainer>
     </div>
