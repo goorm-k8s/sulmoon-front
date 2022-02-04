@@ -31,17 +31,29 @@ const Auth = () => {
         'Content-type': 'application/x-www-form-urlencoded'
       },
       body: formUrlEncoded(user)
-    })
-    console.log(await response.json()) // kakao response
+    });
+    const result = await response.json();
+    console.log('result', result);
 
-    if (response.access_token) {
-      sulmoonLogin(response.access_token);
+    if (result.access_token) {
+      surveyLogin(result.access_token);
     }
   }
   
   //TODO: kakao response에서 받아온 accesstoken으로 설문 로그인 API를 호출하고 응답 받아서 처리하면 끝!
-  const sulmoonLogin = (token) => {
-    // TODO: async fetch
+  const surveyLogin = async (access_token) => {
+    const user = {
+      'token': access_token,
+      'provider': 'kakao',
+    }
+
+    const response = await fetch('http://3.35.95.59:10000/api/users/login/oauth2', {
+      method:'POST',
+      headers: {
+        'Content-type': 'application/json'
+    },
+      body: JSON.stringify(user)
+    })
   }
 
   return (
