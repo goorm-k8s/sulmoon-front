@@ -54,6 +54,10 @@ const Auth = () => {
     },
       body: JSON.stringify(user)
     })
+    const res = await response.json(); 
+    console.log(res.token);
+    console.log(res.userId);
+    console.log(res.providerId);
   }
 
   return (
