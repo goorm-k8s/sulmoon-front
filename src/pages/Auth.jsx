@@ -58,13 +58,19 @@ const Auth = () => {
     console.log(res.token);
     console.log(res.userId);
     console.log(res.providerId);
+
+    localStorage.setItem('token', res.token);
+    localStorage.setItem('userId', res.userId);
+    localStorage.setItem('providerId', res.providerId);
+
+    localStorage.getItem('token');
+    localStorage.getItem('userId');
+    localStorage.getItem('providerId');
+
+    location.href = '/';
   }
 
-  return (
-    <div>
-      { code }
-    </div>
-  );
+  return null
 };
 
 export default Auth;

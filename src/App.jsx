@@ -5,7 +5,6 @@ import Navbar from './Navbar';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './pages/Home';
 import Auth from './pages/Auth';
-import CreateSurvey from './pages/CreateSurvey';
 
 export default function App() {
   return (
@@ -15,7 +14,6 @@ export default function App() {
         <Route path="/" exact element={<Home />} />
         <Route path="/Login" exact element={<Login />} />
         <Route path="/oauth/kakao/callback" element={<Auth />} />
-        <Route path="/CreateSurvey" element={<CreateSurvey />} />
       </Routes>
     </Router>
   );
