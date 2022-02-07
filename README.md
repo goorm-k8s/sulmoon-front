@@ -68,3 +68,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## login flow
+
+kakao login page -> login -> redirect to sulmoon
+-> Auth.jsx에서 redirect 하면서 카카오에서 받아온 인가 코드를 받아옴
+-> 인가코드를 사용해서 카카오 API를 호출해서 토큰을 발급받기
+-> 발급 받은 (카카오)토큰을 가지고 설문 로그인 API를 호출
+-> 응답값을 가지고 프론트 처리
