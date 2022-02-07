@@ -5,7 +5,7 @@ import {Button} from '@material-ui/core';
 
 export default function Home() {
   const handelClickCreateSurvey = () => {
-    window.location.href = '/CreateSurvey';
+    window.location.href = '/Question_form';
   };
 
   return (
