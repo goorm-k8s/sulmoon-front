@@ -2,7 +2,6 @@ import React,{useState,useEffect} from 'react'
 import { useParams } from "react-router";
 import "./QuestionForm.css"
 
-import CropOriginalIcon from '@material-ui/icons/CropOriginal';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 import MenuItem from '@material-ui/core/MenuItem';
@@ -348,7 +347,6 @@ function QuestionForm() {
                         <div >
                             <div className="add_question_top">
                                 <input type="text" className="question" placeholder="Question"    value={ques.questionText} onChange={(e)=>{handleQuestionValue(e.target.value, i)}}></input>
-                                <CropOriginalIcon style={{color:"#5f6368"}} />
                                 
                                 <Select className="select" style={{color:"#5f6368",fontSize:"13px"}} >
                                     {/* <MenuItem value="radio" className="menuitem" >
@@ -389,16 +387,12 @@ function QuestionForm() {
                                         <input type="text" className="text_input" placeholder="option"  value={ques.options[j].optionText}onChange={(e)=>{handleOptionValue(e.target.value, i, j)}}></input>
                                     </div>
 
-                                    <CropOriginalIcon style={{color:"#5f6368"}}/>
 
                                     <IconButton aria-label="delete" onClick={()=>{removeOption(i, j)}}>
                                             <CloseIcon />
                                     </IconButton>
                                 </div>   
                             ))}  
-                        
-                    
-                    
                                 {ques.options.length < 5 ? (
                                 <div className="add_question_body">
                                 <FormControlLabel disabled control={ 
@@ -417,25 +411,11 @@ function QuestionForm() {
 
                                 ): ""}
                                <div className="add_footer">
-                               <div className="add_question_bottom_left">
-                        
-                               <Button size="small"  onClick={()=>{addAnswer(i)}} style={{textTransform: 'none',color:"#4285f4",fontSize:"13px",fontWeight:"600"}}>       <FcRightUp style={{border:"2px solid #4285f4", padding:"2px",marginRight:"8px"}} /> Answer key</Button>
-                                 
-                              </div>
-
                                 <div className="add_question_bottom">
-                                  
-                                    {/* <IconButton aria-label="Copy" onClick={()=>{copyQuestion(i)}}>
-                                        <FilterNoneIcon/>
-                                    </IconButton>
-                                     */}
                                     <IconButton aria-label="delete" onClick={()=>{deleteQuestion(i)}}>
                                         <BsTrash />
                                     </IconButton>
                                         <span style={{color:"#5f6368",fontSize:"13px"}}>Required </span> <Switch name="checkedA" color="primary" checked={ques.required} onClick={()=>{requiredQuestion(i)}}/>
-                                    <IconButton>
-                                        <MoreVertIcon />
-                                    </IconButton>
                                 </div>
                               </div>
                             </div>
@@ -514,12 +494,9 @@ function QuestionForm() {
 
                        
                     )}
-                    {/* {!ques.answer ? (<div className="question_edit">
+                    {!ques.answer ? (<div className="question_edit">
                                 <AddCircleOutlineIcon    onClick={addMoreQuestionField} className="edit"/>
-                                <OndemandVideoIcon className="edit"/>
-                                <CropOriginalIcon className="edit"/>
-                                <TextFieldsIcon className="edit"/>
-                    </div>): "" } */}
+                    </div>): "" }
                     </div>
                             
                 </Accordion>
@@ -551,7 +528,7 @@ function QuestionForm() {
             
                <div className="question_form_top">
                    <input type="text" className="question_form_top_name" style={{color:"black"}} placeholder={documentName} value={documentName} onChange={(e)=>{setDocName(e.target.value)}}></input>
-                   <input type="text" className="question_form_top_desc" placeholder={documentDescription} value={documentDescription} onChange={(e)=>{ setDocDesc(e.target.value)}} ></input>
+                   <input type="text" className="question_form_top_desc" placeholder="Form Description" placeholder={documentDescription} value={documentDescription} onChange={(e)=>{ setDocDesc(e.target.value)}} ></input>
 
                </div>
             </div>   
