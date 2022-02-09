@@ -1,0 +1,38 @@
+.doc_card{
+
+    display:flex;
+    flex-direction: column;
+    box-sizing:border-box;
+
+    width:200px;
+ margin-right:20px;
+}
+
+.doc_card:hover{
+    border:1px solid #6E2594;
+}
+.doc_card_image{
+    box-sizing:border-box;
+    height:150px;
+    width:198px;
+}
+
+.doc_card_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:18px;
+}
+
+.doc_content{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.content_left{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}

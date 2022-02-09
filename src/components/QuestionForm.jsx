@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
-import "./Question_form.css"
+import { useParams } from "react-router";
+import "./QuestionForm.css"
 
 import CropOriginalIcon from '@material-ui/icons/CropOriginal';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
@@ -52,17 +53,16 @@ import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 
 import SaveIcon from '@material-ui/icons/Save';
 
-import { useStateValue } from './StateProvider'
-import { actionTypes } from './reducer'
-import { useParams } from "react-router";
+import { useStateValue } from '../StateProvider'
+import { actionTypes } from '../reducer'
 import axios from "axios";
 
-function Question_form() {
-  const [{a = {}}, dispatch] = useStateValue();
+function QuestionForm() {
+  const [state, dispatch] = useStateValue();
     const [questions,setQuestions] =useState([]); 
     const [documentName,setDocName] =useState("untitled Document"); 
 
-    const [documentDescription,setDocDesc] =useState("Add Description"); 
+    const [documentDescription, setDocDesc] =useState("Add Description"); 
 
     const [questionType,setType] =useState("radio");
     const [questionRequired,setRequired] =useState("true"); 
@@ -74,39 +74,6 @@ function Question_form() {
 
            setQuestions([...questions, newQuestion])
       
-    },[])
- 
-   useEffect(()=>{
-    async function data_adding(){
-      var request = await axios.get(`http://localhost:9000/data/${id}`);
-      console.log("sudeep")
-      var question_data=request.data.questions;
-      console.log(question_data)
-      var doc_name=request.data.document_name
-      var doc_descip = request.data.doc_desc
-      console.log(doc_name+" "+doc_descip)
-      setDocName(doc_name)
-      setDocDesc(doc_descip)
-      setQuestions( question_data)
-      dispatch({
-        type: actionTypes.SET_DOC_NAME,
-        doc_name: doc_name
-
-     }) 
-
-      dispatch({
-        type: actionTypes.SET_DOC_DESC,
-        doc_desc: doc_descip
-
-   })
-      dispatch({
-          type: actionTypes.SET_QUESTIONS,
-          questions:question_data
-
-       })
-    }
-
-    data_adding()
     },[])
 
     function changeType(e){
@@ -138,23 +105,25 @@ function Question_form() {
 
       
 
-      function commitToDB(){
-        console.log(questions);
-        dispatch({
-          type: actionTypes.SET_QUESTIONS,
-           questions:questions
+  async function commitToDB() {
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
 
-         })
+    console.log(questions);
+    dispatch({
+      type: actionTypes.SET_QUESTIONS,
+      questions: questions
 
-         axios.post(`http://localhost:9000/add_questions/${id}`,{
-          "document_name": documentName,
-          "doc_desc": documentDescription,
-          "questions": questions,
-          
-          
-      
-        })
+    })
+    const response = await fetch(`http://3.35.95.59:10000/api/surveys/users/${userId}`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+        'Authorization': `Bearer ${token}`
       }
+    })
+    const res = await response.json();
+  }
     
     
     
@@ -435,7 +404,7 @@ function Question_form() {
                                 <FormControlLabel disabled control={ 
                                 
                                 (ques.questionType!="text") ? 
-                                <input type={ques.questionType}  color="primary" inputProps={{ 'aria-label': 'secondary checkbox' }} style={{marginLeft:"10px",marginRight:"10px"}} disabled/> :
+                                <input type={ques.questionType}  color="primary" style={{marginLeft:"10px",marginRight:"10px"}} disabled/> :
                                 <ShortTextIcon style={{marginRight:"10px"}} />
 
                                 } label={
@@ -582,7 +551,7 @@ function Question_form() {
             
                <div className="question_form_top">
                    <input type="text" className="question_form_top_name" style={{color:"black"}} placeholder={documentName} value={documentName} onChange={(e)=>{setDocName(e.target.value)}}></input>
-                   <input type="text" className="question_form_top_desc" placeholder="Form Description" placeholder={documentDescription} value={documentDescription} onChange={(e)=>{setDocDesc(e.target.value)}} ></input>
+                   <input type="text" className="question_form_top_desc" placeholder={documentDescription} value={documentDescription} onChange={(e)=>{ setDocDesc(e.target.value)}} ></input>
 
                </div>
             </div>   
@@ -614,4 +583,4 @@ function Question_form() {
     )
 }
 
-export default Question_form
+export default QuestionForm

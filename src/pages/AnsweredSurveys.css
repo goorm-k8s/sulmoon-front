@@ -1,0 +1,41 @@
+.mainbody{
+    margin-left:160px;
+    margin-right:180px;
+       
+    background-color:white;
+
+}
+
+.main_top{
+    margin-top: 15px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main_top_center{
+    display:flex;
+    box-sizing: content-box;
+    align-items: center;
+    padding:3px 5px;
+    border-radius:6px;
+    font-size: 16px;
+    
+}
+
+.main_top_center:hover{
+    background-color:#F4F4F9 ;
+}
+
+.main_top_right{
+    display: flex;
+    align-items: center;
+}
+
+.main_docs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+

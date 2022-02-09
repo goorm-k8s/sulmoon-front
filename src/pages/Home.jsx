@@ -1,20 +1,32 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 
 import styled from 'styled-components';
 import {Button} from '@material-ui/core';
 
 export default function Home() {
+  const history = useHistory();
+
+  
+  const handleClickCreatedSurveys = () => {
+    history.push('/CreatedSurveys');
+  };
+  
+  const handleClickAnsweredSurveys = () => {
+    history.push('/AnsweredSurveys');
+  };
+  
   const handelClickCreateSurvey = () => {
-    window.location.href = '/Question_form';
+    history.push('/QuestionForm');
   };
 
   return (
     <div>
       <ButtonWrapper>
-        <SurveyButton>
+        <SurveyButton onClick={handleClickCreatedSurveys}>
             내가 생성한 설문 보기
         </SurveyButton>
-        <SurveyButton>
+        <SurveyButton onClick={handleClickAnsweredSurveys}>
              내가 참여한 설문 보기
         </SurveyButton>
         <SurveyButton onClick={handelClickCreateSurvey}>

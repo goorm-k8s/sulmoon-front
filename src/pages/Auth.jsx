@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 const formUrlEncoded = x =>
     Object.keys(x).reduce((p, c) => p + `&${c}=${encodeURIComponent(x[c])}`, '')
@@ -63,11 +63,7 @@ const Auth = () => {
     localStorage.setItem('userId', res.userId);
     localStorage.setItem('providerId', res.providerId);
 
-    localStorage.getItem('token');
-    localStorage.getItem('userId');
-    localStorage.getItem('providerId');
-
-    location.href = '/';
+    window.location.href = '/';
   }
 
   return null

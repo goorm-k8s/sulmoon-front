@@ -5,9 +5,14 @@ import styled from 'styled-components';
 import Sulmoon5 from '../images/Sulmoon5.jpg';
 import kakao from '../images/kakao.png';
 
+const REST_API_KEY = '5af42f065a8d4e342c4249779e84b76e';
+const REDIRECT_URI = 'http://localhost:3000/oauth/kakao/callback';
+const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+
 export default function Login() {
+  console.log('hi');
   const handleClickKakaoLogin = () => {
-    location.href = KAKAO_AUTH_URL;
+    window.location.href = KAKAO_AUTH_URL;
   };
 
   return (
@@ -21,15 +26,6 @@ export default function Login() {
             imgUrl={kakao}
             onClick={handleClickKakaoLogin}
           />
-          {/* <SNSButton>
-            네이버로 로그인
-          </SNSButton>
-          <SNSButton buttonColor="#3B5998" isWhiteColor>
-             Facebook으로 로그인
-          </SNSButton>
-          <SNSButton buttonColor="#EA4335" isWhiteColor>
-             Google 계정으로 로그인
-          </SNSButton> */}
         </ButtonWrapper>
       </ButtonContainer>
     </div>
@@ -57,10 +53,6 @@ const SNSButton = styled(Button)`
     width: 280px;
     height: 50px;
     background-size: 'contain';
-    background:url(${(props)=>props.imgUrl}); 
+    background:url(${(props) => props.imgUrl}); 
   }
 `;
-
-const REST_API_KEY = '5af42f065a8d4e342c4249779e84b76e';
-const REDIRECT_URI = 'http://localhost:3000/oauth/kakao/callback';
-const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
