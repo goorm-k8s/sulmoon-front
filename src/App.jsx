@@ -8,20 +8,23 @@ import Auth from './pages/Auth';
 import QuestionForm from './components/QuestionForm';
 import CreatedSurveys from './pages/CreatedSurveys';
 import AnsweredSurveys from './pages/AnsweredSurveys';
+import { QuestionsProvider } from './hooks/useQuestions';
 
 export default function App() {
   return (
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/Login" exact component={Login} />
-        <Route path="/oauth/kakao/callback" component={Auth} />
-        <Route path="/QuestionForm" exact component={QuestionForm} />
-        <Route path="/CreatedSurveys" exact component={CreatedSurveys} />
-        <Route path="/AnsweredSurveys" exact component={AnsweredSurveys} />
-      </Switch>
-    </Router>
+    <QuestionsProvider>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/Login" exact component={Login} />
+          <Route path="/oauth/kakao/callback" component={Auth} />
+          <Route path="/QuestionForm/:id" exact component={QuestionForm} />
+          <Route path="/CreatedSurveys" exact component={CreatedSurveys} />
+          <Route path="/AnsweredSurveys" exact component={AnsweredSurveys} />
+        </Switch>
+      </Router>
+    </QuestionsProvider>
   );
 }
 

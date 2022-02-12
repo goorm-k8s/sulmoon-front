@@ -13,14 +13,14 @@ function CreatedSurveys() {
   
     useEffect(() => {
         (async () => {
-            const request = await fetch(`http://3.35.95.59:10000/api/surveys/users/${userId}`, {
+            const response = await fetch(`http://3.35.95.59:10000/api/surveys/users/${userId}`, {
                 method: 'GET',
                 headers: {
                     'Content-type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 }
             })
-            setSurveys(await request.json());
+            setSurveys(await response.json());
         })();
     }, [token, userId])
 
@@ -41,10 +41,8 @@ function CreatedSurveys() {
             <div className="main_docs">
                 {
                     surveys.length === 0 ?
-                        (<p>생성한 설문이 없습니다.</p>)
-                        : surveys.map(survey => (
-                            <Card key={survey.id} name={survey}/>
-                        ))
+											(<p>생성한 설문이 없습니다.</p>)
+										: surveys.map(survey => <Card key={survey.id} title={survey.title}/>)
                  }
             </div>
         </div>
