@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
+    "chart.js": "^2.9.4",
     "constate": "^3.3.0",
     "cors": "^2.8.5",
     "exceljs": "^4.2.0",

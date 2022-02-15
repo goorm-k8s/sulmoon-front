@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import Login from './pages/Login';
-import Navbar from './Navbar';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import Home from './pages/Home';
-import Auth from './pages/Auth';
-import QuestionForm from './components/QuestionForm';
-import CreatedSurvey from './components/CreatedSurvey';
-import CreatedSurveys from './pages/CreatedSurveys';
-import AnsweredSurveys from './pages/AnsweredSurveys';
-import { QuestionsProvider } from './hooks/useQuestions';
+import Login from "./pages/Login";
+import Navbar from "./Navbar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Auth from "./pages/Auth";
+import QuestionForm from "./components/QuestionForm";
+import CreatedSurvey from "./components/CreatedSurvey";
+import CreatedSurveys from "./pages/CreatedSurveys";
+import AnsweredSurveys from "./pages/AnsweredSurveys";
+import { QuestionsProvider } from "./hooks/useQuestions";
 
 export default function App() {
   return (
@@ -29,5 +29,3 @@ export default function App() {
     </QuestionsProvider>
   );
 }
-
-
