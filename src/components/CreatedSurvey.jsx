@@ -6,31 +6,40 @@ export default function CreatedSurvey() {
   const { id } = useParams();
   const [survey, setSurvey] = useState({});
   
-   useEffect(() => {
+  useEffect(() => {
     (async () => {
-      const response = await fetch(`http://3.35.95.59:10000/api/surveys/${id}/answers`, {
+      const response = await fetch(`http://3.35.95.59:10000/api/surveys/${id}/examples`, {
         method: 'GET',
         headers: {
           'Content-type': 'application/json',
           'Authorization': `Bearer ${token}`
-                }
-          })
+        }
+      })
       const res = await response.json();
       console.log('res', res);
       setSurvey(res);
     })();
-   }, [token])
+  }, [token])
   
-  return (
+  return (    
     <div>
       {
       Object.keys(survey).length === 0 ?
       (<p>Loading</p>)
     :
       <>
-        <p>{survey.title}</p>
-        <p>{survey.questions[0].questionContent}</p>
-        {/* {survey.questions[0].answers.answerContent} */}
+            <h1>제목: {survey.title}</h1>
+            {survey.questions.map((question, index) => (
+              <React.Fragment key={ question.questionId }>
+                <p style={{fontSize:'20px'}}>질문{ index + 1 }: {question.questionContent}</p>
+                {
+                  question.examples.map((example, index) => (
+                    <p key={example.exampleId}>옵션 { index + 1}:{example.exampleContent}</p>
+                  ))
+                }
+              </React.Fragment>
+              ))
+            }
       </>
       }
     </div>
