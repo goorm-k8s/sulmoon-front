@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from "react-router";
 
 import "./QuestionForm.css"; 
-import { Radio, FormControl, FormControlLabel, RadioGroup, FormLabel } from '@material-ui/core';
+import { Radio, FormControl, FormControlLabel, RadioGroup, FormLabel, Button } from '@material-ui/core';
 
 export default function Survey() {
   const token = localStorage.getItem('token');
   const { id } = useParams();
   const [survey, setSurvey] = useState({});
+  // const [answer, setAnswer] = useState();
   
   useEffect(() => {
     (async () => {
@@ -24,6 +25,14 @@ export default function Survey() {
     })();
   }, [token])
 
+  const handleChangeAnswer = (event, value) => {
+    console.log('event, value', event, value);
+  }
+
+  const handleSubmit = () => {
+    // TODO: 설문완료 API 호출
+  }
+
   return (
     <div>
       <div className="question_form">
@@ -35,15 +44,15 @@ export default function Survey() {
             Object.keys(survey).length === 0 ?
             (<p>Loading</p>)
           :
-            <>
+            <FormControl>
               <h1>Title: {survey.title}</h1>
               {survey.questions.map((question, index) => (
-                <FormControl key={ question.questionId }>
+                <React.Fragment key={ question.questionId }>
                   <FormLabel id="demo-radio-buttons-group-label" style={{ fontSize: '20px' }}>Question{index + 1}: {question.questionContent}</FormLabel>
                   <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
                     name="radio-buttons-group"
-                    defaultValue={question.examples[0].exampleId}
+                    onChange={handleChangeAnswer}
                   >
                     {
                       question.examples.map((example, index) => (
@@ -51,18 +60,18 @@ export default function Survey() {
                           key={example.exampleId}
                           control={<Radio />}
                           label={`Option ${index + 1}:${example.exampleContent}`}
-                          value={example.exampleId}
+                          value={`${example.exampleId}`}
                         />
                       ))
                     }
                   </RadioGroup>
-                </FormControl>
+                </React.Fragment>
               ))}
-            </>
+              <div className="save_form">
+                <Button variant="contained" color="primary" type="submit" style={{fontSize:"14px"}}>제출</Button>
+              </div>
+            </FormControl>
               }
-              {/* <div className="save_form">
-            <Button variant="contained" color="primary" onClick={handleSubmit} style={{fontSize:"14px"}}>제출</Button>
-          </div> */}
             </div>
           </div>
         </div>
