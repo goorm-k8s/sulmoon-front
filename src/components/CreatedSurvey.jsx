@@ -23,25 +23,34 @@ export default function CreatedSurvey() {
   
   return (    
     <div>
-      {
-      Object.keys(survey).length === 0 ?
-      (<p>Loading</p>)
-    :
-      <>
-            <h1>제목: {survey.title}</h1>
-            {survey.questions.map((question, index) => (
-              <React.Fragment key={ question.questionId }>
-                <p style={{fontSize:'20px'}}>질문{ index + 1 }: {question.questionContent}</p>
-                {
-                  question.examples.map((example, index) => (
-                    <p key={example.exampleId}>옵션 { index + 1}:{example.exampleContent}</p>
-                  ))
-                }
-              </React.Fragment>
-              ))
-            }
-      </>
-      }
+      <div className="question_form">
+        <br/>
+        <div className="section">
+          <div className="question_title_section">
+            <div className="question_form_top">
+            {
+            Object.keys(survey).length === 0 ?
+            (<p>Loading</p>)
+          :
+            <>
+                  <h1>Title: {survey.title}</h1>
+                  {survey.questions.map((question, index) => (
+                    <React.Fragment key={ question.questionId }>
+                      <p style={{fontSize:'20px'}}>Question{ index + 1 }: {question.questionContent}</p>
+                      {
+                        question.examples.map((example, index) => (
+                          <p key={example.exampleId}>Option { index + 1}:{example.exampleContent}</p>
+                        ))
+                      }
+                    </React.Fragment>
+                    ))
+                  }
+            </>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

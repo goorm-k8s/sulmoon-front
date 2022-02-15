@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Auth from './pages/Auth';
 import QuestionForm from './components/QuestionForm';
 import CreatedSurvey from './components/CreatedSurvey';
+import Survey from './components/Survey';
 import CreatedSurveys from './pages/CreatedSurveys';
 import AnsweredSurveys from './pages/AnsweredSurveys';
 import { QuestionsProvider } from './hooks/useQuestions';
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/CreatedSurveys" exact component={CreatedSurveys} />
           <Route path="/CreatedSurvey/:id" exact component={CreatedSurvey} />
           <Route path="/AnsweredSurveys" exact component={AnsweredSurveys} />
+          <Route path="/CreatedSurvey/:id/survey" exact component={Survey} />
         </Switch>
       </Router>
     </QuestionsProvider>
