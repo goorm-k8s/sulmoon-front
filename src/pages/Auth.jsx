@@ -33,7 +33,6 @@ const Auth = () => {
       body: formUrlEncoded(user)
     });
     const result = await response.json();
-    console.log('result', result);
 
     if (result.access_token) {
       surveyLogin(result.access_token);
@@ -55,9 +54,6 @@ const Auth = () => {
       body: JSON.stringify(user)
     })
     const res = await response.json(); 
-    console.log(res.token);
-    console.log(res.userId);
-    console.log(res.providerId);
 
     localStorage.setItem('token', res.token);
     localStorage.setItem('userId', res.userId);

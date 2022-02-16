@@ -33,10 +33,10 @@ function CreatedSurveys() {
             <div className="main_top_center" style={{fontSize:"14px",marginRight:"125px"}}>Owned by anyone <ArrowDropDownIcon/></div>
               <IconButton >
                 <StorageIcon style={{    fontSize: '16px',color:"black"}}/>
-              </ IconButton>
+              </IconButton>
               <IconButton >
                 <FolderOpenIcon style={{    fontSize: '16px',color:"black"}}/>
-              </ IconButton>
+              </IconButton>
             </div>
           </div>
         <div className="main_docs">

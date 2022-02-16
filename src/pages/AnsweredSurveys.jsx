@@ -31,11 +31,11 @@ function AnsweredSurveys() {
                 <div className="main_top_right">
                 <div className="main_top_center" style={{fontSize:"14px",marginRight:"125px"}}>Owned by anyone <ArrowDropDownIcon/></div>
                     <IconButton >
-                       <StorageIcon style={{    fontSize: '16px',color:"black"}}/>
-                    </ IconButton>
+                       <StorageIcon style={{ fontSize: '16px', color:"black"}}/>
+                    </IconButton>
                     <IconButton >
-                      <FolderOpenIcon style={{    fontSize: '16px',color:"black"}}/>
-                    </ IconButton>
+                      <FolderOpenIcon style={{ fontSize: '16px', color:"black"}}/>
+                    </IconButton>
                 </div>
             </div>
             <div className="main_docs">
