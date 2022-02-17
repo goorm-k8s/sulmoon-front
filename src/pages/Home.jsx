@@ -13,8 +13,8 @@ export default function Home() {
     history.push('/CreatedSurveys');
   };
   
-  const handleClickStatistics = () => {
-    history.push('/Statistics');
+  const handleClickSurveyStatistics = () => {
+    history.push('/SurveyStatistics');
   };
 
   const fetchCreateSurvey = async () => {
@@ -49,7 +49,7 @@ export default function Home() {
         <SurveyButton onClick={handleClickCreatedSurveys}>
             내가 생성한 설문 보기
         </SurveyButton>
-        <SurveyButton onClick={handleClickStatistics}>
+        <SurveyButton onClick={handleClickSurveyStatistics}>
              설문 통계
         </SurveyButton>
       </ButtonWrapper>

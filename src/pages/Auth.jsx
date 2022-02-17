@@ -6,7 +6,6 @@ const formUrlEncoded = x =>
 const Auth = () => {
   const code = new URL(window.location.href).searchParams.get('code');  // 카카오에서 인가받은 코드
 
-  // 비동기호출 -> 함수를 먼가 실행해야하는건데 -> 리액트에서는 이걸 이팩트를 발생시켜서 처리할수있다
   useEffect(() => {
     if (code) {
       kakaoLogin(code);
@@ -39,8 +38,7 @@ const Auth = () => {
     }
   }
   
-  //TODO: kakao response에서 받아온 accesstoken으로 설문 로그인 API를 호출하고 응답 받아서 처리하면 끝!
-  const surveyLogin = async (access_token) => {
+    const surveyLogin = async (access_token) => {
     const user = {
       'token': access_token,
       'provider': 'kakao',
