@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import Login from './pages/Login';
 import Navbar from './Navbar';
@@ -33,5 +33,3 @@ export default function App() {
     </QuestionsProvider>
   );
 }
-
-

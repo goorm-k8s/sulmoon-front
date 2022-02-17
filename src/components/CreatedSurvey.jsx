@@ -1,23 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from "react-router";
+import React, { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router";
+import { Chart } from "chart.js";
+
+import { Typography } from "@material-ui/core";
+import Accordion from "@material-ui/core/Accordion";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+
+import "./QuestionForm.css";
 
 export default function CreatedSurvey() {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
+  const userId = localStorage.getItem("userId");
   const { id } = useParams();
   const [survey, setSurvey] = useState({});
-  
+  const [charts, setCharts] = useState([]);
+
+  const history = useHistory();
+  const [questions, setQuestions] = useState([]);
+
+  const API_DOMAIN = "http://3.35.95.59:10000/api";
+
   useEffect(() => {
     (async () => {
-      const response = await fetch(`http://3.35.95.59:10000/api/surveys/${id}/examples`, {
-        method: 'GET',
+      const response = await fetch(`${API_DOMAIN}/surveys/${id}/answers`, {
+        method: "GET",
         headers: {
-          'Content-type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      const res = await response.json();
-      console.log('res', res);
-      setSurvey(res);
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setSurvey(await response.json());
     })();
   }, [token])
   
@@ -52,5 +65,5 @@ export default function CreatedSurvey() {
         </div>
       </div>
     </div>
-  )
+  );
 }
