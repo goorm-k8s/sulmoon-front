@@ -13,8 +13,8 @@ export default function Home() {
     history.push('/CreatedSurveys');
   };
   
-  const handleClickAnsweredSurveys = () => {
-    history.push('/AnsweredSurveys');
+  const handleClickSurveyStatistics = () => {
+    history.push('/SurveyStatistics');
   };
 
   const fetchCreateSurvey = async () => {
@@ -43,14 +43,14 @@ export default function Home() {
   return (
     <div>
       <ButtonWrapper>
+        <SurveyButton onClick={handelClickCreateSurvey}>
+             새로운 설문 생성
+        </SurveyButton>
         <SurveyButton onClick={handleClickCreatedSurveys}>
             내가 생성한 설문 보기
         </SurveyButton>
-        <SurveyButton onClick={handleClickAnsweredSurveys}>
-             내가 참여한 설문 보기
-        </SurveyButton>
-        <SurveyButton onClick={handelClickCreateSurvey}>
-             새로운 설문 생성
+        <SurveyButton onClick={handleClickSurveyStatistics}>
+             설문 통계
         </SurveyButton>
       </ButtonWrapper>
     </div>

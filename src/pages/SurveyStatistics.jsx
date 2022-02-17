@@ -4,10 +4,10 @@ import StorageIcon from '@material-ui/icons/Storage';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import FolderOpenIcon from '@material-ui/icons/FolderOpen';
 import { IconButton } from '@material-ui/core';
-import Card from "src/components/Card"
+import CardStats from "src/components/CardStats"
 
 
-function CreatedSurveys() {
+function SurveyStatistics() {
   const [surveys, setSurveys] = useState([]);
   const token = localStorage.getItem('token');
   const userId = localStorage.getItem('userId');
@@ -32,10 +32,10 @@ function CreatedSurveys() {
           <div className="main_top_right">
             <div className="main_top_center" style={{fontSize:"14px",marginRight:"125px"}}>Owned by anyone <ArrowDropDownIcon/></div>
               <IconButton >
-                <StorageIcon style={{    fontSize: '16px',color:"black"}}/>
+                <StorageIcon style={{fontSize: '16px',color:"black"}}/>
               </IconButton>
               <IconButton >
-                <FolderOpenIcon style={{    fontSize: '16px',color:"black"}}/>
+                <FolderOpenIcon style={{fontSize: '16px',color:"black"}}/>
               </IconButton>
             </div>
           </div>
@@ -43,11 +43,11 @@ function CreatedSurveys() {
                 {
                   surveys.length === 0 ?
 										(<p>생성한 설문이 없습니다.</p>)
-            : surveys.map(survey => <Card key={survey.id} title={survey.title} id={survey.id}/>)
+            : surveys.map(survey => <CardStats key={survey.id} title={survey.title} id={survey.id}/>)
                 }
       </div>
     </div>
   )
 }
 
-export default CreatedSurveys;
+export default SurveyStatistics;
