@@ -408,6 +408,9 @@ function QuestionForm() {
         <br/>
         <div className="section">
           <div className="question_title_section">
+            <div className="question_form_top">
+                <input type="text" className="question_form_top_name" style={{color:"black"}} placeholder={documentName} value={documentName} onChange={(e)=>{setDocName(e.target.value)}}></input>
+              </div>
           </div>   
           <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="droppable">
