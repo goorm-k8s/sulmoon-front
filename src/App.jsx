@@ -9,7 +9,7 @@ import QuestionForm from './components/QuestionForm';
 import CreatedSurvey from './components/CreatedSurvey';
 import Survey from './components/Survey';
 import CreatedSurveys from './pages/CreatedSurveys';
-import AnsweredSurveys from './pages/AnsweredSurveys';
+import Statistics from './pages/Statistics';
 import { QuestionsProvider } from './hooks/useQuestions';
 
 export default function App() {
@@ -24,7 +24,7 @@ export default function App() {
           <Route path="/QuestionForm/:id" exact component={QuestionForm} />
           <Route path="/CreatedSurveys" exact component={CreatedSurveys} />
           <Route path="/CreatedSurvey/:id" exact component={CreatedSurvey} />
-          <Route path="/AnsweredSurveys" exact component={AnsweredSurveys} />
+          <Route path="/Statistics" exact component={Statistics} />
           <Route path="/CreatedSurvey/:id/survey" exact component={Survey} />
         </Switch>
       </Router>
