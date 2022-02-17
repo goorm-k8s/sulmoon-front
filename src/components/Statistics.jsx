@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router";
+import { useParams } from "react-router";
 import { Chart } from "chart.js";
 
 import { Typography } from "@material-ui/core";
